@@ -1,5 +1,8 @@
 package com.blz.regex;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class UserRegistrationTest {
     UserInformation storePattern = new UserInformation();
 
@@ -35,5 +38,15 @@ public class UserRegistrationTest {
         String passPattern= storePattern.getPasswordPattern();
         storePattern.validatingInput(password,passPattern,"Password");
     }
-
+    public static void validateEmailsList(String[] emails) {
+        for (int i = 0; i <= emails.length; i++) {
+            Pattern pattern = Pattern.compile("^[a-zA-Z]+[a-zA-Z0-9]*[- . + _]?[a-zA-Z0-9]+[@][a-z0-9]+[.][a-z]+[.]?[a-z]+$");
+            Matcher matcher = pattern.matcher(emails[i]);
+            if (matcher.matches()) {
+                System.out.println(emails + " : This Email id is valid");
+            } else {
+                System.out.println(emails + " : This Email id is Invalid");
+            }
+        }
+    }
 }
