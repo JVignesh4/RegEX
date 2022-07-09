@@ -8,6 +8,16 @@ public class UserInformation {
     private  String email;
     private String mobileNumber;
 
+    public String getPasswordPattern() {
+        return passwordPattern;
+    }
+
+    public void setPasswordPattern(String passwordPattern) {
+        this.passwordPattern = passwordPattern;
+    }
+
+    private String passwordPattern;
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

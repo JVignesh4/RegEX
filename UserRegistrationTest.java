@@ -1,6 +1,7 @@
 package com.blz.regex;
 
 public class UserRegistrationTest {
+    UserInformation storePattern = new UserInformation();
 
     public void validateFirstName(String firstName) {
         UserInformation store = new UserInformation();
@@ -24,10 +25,15 @@ public class UserRegistrationTest {
     }
 
     public void validateMobNumber(String number) {
-        UserInformation storePattern = new UserInformation();
         storePattern.setMobileNumber("^[0-9]{2}\s?[6-9]{1}[0-9]{9}");
         String mobPattern = storePattern.getMobileNumber();
         storePattern.validatingInput(number, mobPattern, "Mobile Number");
+    }
+
+    public void validatePassword(String password){
+        storePattern.setPasswordPattern("^[a-zA-Z0-9]{8,}$");
+        String passPattern= storePattern.getPasswordPattern();
+        storePattern.validatingInput(password,passPattern,"Password");
     }
 
 }
